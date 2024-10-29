@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Patient Dashboard</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2 class="mt-5">Patient Dashboard</h2>
+
+    <table class="table">
+
+      <thead>
+
+        <tr>
+
+          <th>ID</th>
+
+          <th>Age</th>
+
+          <th>Risk</th>
+
+          <th>Care Plan</th>
+
+          <th>Self Management Support</th>
+
+          <th>Follow-Up Schedule</th>
+
+          <th>Outcome</th>
+
+          <th>Quality Improvement Feedback</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        {% for patient in patients.iterrows() %}
+
+        <tr>
+
+          <td>{{ patient[1]['id'] }}</td>
+
+          <td>{{ patient[1]['age'] }}</td>
+
+          <td>{{ patient[1]['risk'] }}</td>
+
+          <td>{{ patient[1]['care_plan'] }}</td>
+
+          <td>{{ patient[1]['self_management_support'] }}</td>
+
+          <td>{{ patient[1]['follow_up_schedule'] }}</td>
+
+          <td>{{ patient[1]['outcome'] }}</td>
+
+          <td>{{ patient[1]['quality_improvement_feedback'] }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+      </tbody>
+
+    </table>
+
+    <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+
+  </div>
+
+</body>
+
+</html>
+
+
